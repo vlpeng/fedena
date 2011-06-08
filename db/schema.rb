@@ -11,6 +11,16 @@
 
 ActiveRecord::Schema.define(:version => 20100731055437) do
 
+  create_table "additional_exam_groups", :force => true do |t|
+    t.string  "name"
+    t.integer "batch_id"
+    t.string  "exam_type"
+    t.boolean "is_published",     :default => false
+    t.boolean "result_published", :default => false
+    t.string  "students_list"
+    t.date    "exam_date"
+  end
+
   create_table "additional_exam_scores", :force => true do |t|
     t.integer  "student_id"
     t.integer  "additional_exam_id"
@@ -189,6 +199,7 @@ ActiveRecord::Schema.define(:version => 20100731055437) do
     t.boolean  "is_deleted",                               :default => false
     t.integer  "immediate_contact_id"
     t.boolean  "is_sms_enabled",                           :default => true
+    t.string   "former_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -256,8 +267,8 @@ ActiveRecord::Schema.define(:version => 20100731055437) do
 
   create_table "courses", :force => true do |t|
     t.string   "course_name"
-    t.string   "section_name"
     t.string   "code"
+    t.string   "section_name"
     t.boolean  "is_deleted",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -408,6 +419,7 @@ ActiveRecord::Schema.define(:version => 20100731055437) do
     t.boolean  "is_common",   :default => false
     t.boolean  "is_holiday",  :default => false
     t.boolean  "is_exam",     :default => false
+    t.boolean  "is_due",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -416,14 +428,15 @@ ActiveRecord::Schema.define(:version => 20100731055437) do
     t.string  "name"
     t.integer "batch_id"
     t.string  "exam_type"
-    t.boolean "is_published", :default => false
+    t.boolean "is_published",     :default => false
+    t.boolean "result_published", :default => false
     t.date    "exam_date"
   end
 
   create_table "exam_scores", :force => true do |t|
     t.integer  "student_id"
     t.integer  "exam_id"
-    t.integer  "marks",            :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "marks",            :precision => 7, :scale => 2
     t.integer  "grading_level_id"
     t.string   "remarks"
     t.boolean  "is_failed"
