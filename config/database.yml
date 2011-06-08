@@ -11,7 +11,7 @@ test: &test
       adapter: mysql
       database: fedena_test
       port: 3306
-      username: admin
+      username: root
       password:
 
 production:
@@ -19,7 +19,7 @@ production:
       adapter: mysql
       database: fedena
       port: 3306
-      username: admin
+      username: root
       password: 
 cucumber:
   <<: *test
