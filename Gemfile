@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem "mysql"
-gem "rails", "2.3.5"
+gem "rails", "2.3.11"
 gem 'rake', '0.8.7'
 gem 'declarative_authorization'
 gem 'searchlogic'
