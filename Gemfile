@@ -6,6 +6,7 @@ gem 'rake', '0.8.7'
 gem 'declarative_authorization'
 gem 'searchlogic'
 gem 'prawn' , '0.6.3'
+gem 'test-'
 group :development do
   # bundler requires these gems in development
   # gem "rails-footnotes"
@@ -16,3 +17,4 @@ group :test do
   # gem "rspec"
   # gem "faker"
 end
+
